@@ -1,0 +1,63 @@
+button:hover{
+  cursor: pointer;
+}
+
+.generator {
+  display: flex;
+  flex-direction: row;
+}
+
+.namescontainer {
+  margin: 2em;
+}
+
+.teamscontainer {
+  margin: 2em;
+}
+
+.generatecontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.generateButton {
+  margin-top: 1em;
+}
+
+.namelist {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  position: relative;
+}
+
+.teamlist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+.teamlistelement {
+  min-width: 50%;
+}
+
+.namebox {
+  margin: 1em 0;
+  padding: 5px;
+  border: 2px solid;
+  width: auto;
+}
+
+.removebutton {
+  position: absolute;
+  right: 0;
+  border: 0;
+  background: none;
+  font-weight: bold;
+}
+
+.teamboxcontainer {
+  display: flex;
+}

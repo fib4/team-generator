@@ -3,40 +3,52 @@
   <head>
     <meta charset="utf-8">
     <title>Team Generator</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
+
   <body>
-    <div>
-      <div>
-        <input type="text" placeholder="Name">
-        <button>Add</button>
-      </div>
-      <div>
-        <ul>
-          <li>Joku Nimi<button>x</button></li>
-          <li>Toinen nimi<button>x</button></li>
-        </ul>
-      </div>
-      <div>
-        <label for="number_per_team">How many players in one team:</label>
-        <select name="number_per_team" id="number_per_team">
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-        <button>Generate</button>
-      </div>
-      <div>
-        <div>
-          <ul>
-            <li>Joku</li>
-            <li>Joku2</li>
+    <div class="generator">
+      <div class="namescontainer">
+        <div class="add_name">
+          <input type="text" placeholder="Name">
+          <button>Add</button>
+        </div>
+        <div class="namebox">
+          <ul class="namelist">
+            <li>Joku Nimi<button class="removebutton">x</button></li>
+            <li>Toinen nimi<button class="removebutton">x</button></li>
           </ul>
         </div>
+      </div>
+
+      <div class="teamscontainer">
+        <div class="generatecontainer">
+          <div>
+            <label for="number_per_team">How many players in a team:</label>
+            <select name="number_per_team" id="number_per_team">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <button class="generateButton">Generate</button>
+        </div>
         <div>
-          <ul>
-            <li>Joku3</li>
-            <li>Joku4</li>
-          </ul>
+          <div class="namebox">
+            <ul class="namelist teamlist">
+              <li class="teamlistelement">Joku</li>
+              <li class="teamlistelement">joku 3</li>
+              <li class="teamlistelement">Joku2</li>
+              <li class="teamlistelement">Joku2</li>
+
+            </ul>
+          </div>
+          <div class="namebox">
+            <ul class="namelist">
+              <li>Joku3</li>
+              <li>Joku4</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
