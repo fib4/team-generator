@@ -60,3 +60,7 @@ button:hover{
 .teamboxcontainer {
   display: flex;
 }
+
+.dropdownmenu {
+  width:3em;
+}

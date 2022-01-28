@@ -9,26 +9,19 @@
   <body>
     <div class="generator">
       <div class="namescontainer">
-        <div class="add_name">
-          <input id ="new_input" type="text" placeholder="Name">
-          <button id="add_button">Add</button>
-        </div>
-        <div class="namebox" id="add_name_box">
-          <!-- <ul class="namelist" id="initialnamelist">
-            <li>Joku Nimi<button class="removebutton"></button></li>
-            <li>Toinen nimi<button class="removebutton">x</button></li>
-          </ul> -->
-        </div>
+        <form id="add_name_form">
+          <input name="new_input" type="text" placeholder="Name">
+          <input type="submit" value="Add" />
+        </form>
+        <div class="namebox" id="add_name_box"></div>
       </div>
 
       <div class="teamscontainer">
         <div class="generatecontainer">
           <div>
             <label for="number_per_team">How many players in a team:</label>
-            <select name="number_per_team" id="number_per_team">
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
+            <select class="dropdownmenu" name="number_per_team" id="number_per_team">
+              <option value="" disabled selected hidden>...</option>
             </select>
           </div>
           <button class="generateButton">Generate</button>
