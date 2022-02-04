@@ -1,3 +1,7 @@
+*{
+  font-family: sans-serif;
+}
+
 button:hover{
   cursor: pointer;
 }
@@ -28,7 +32,7 @@ button:hover{
   border: 2px solid;
   list-style-type: none;
   padding: 5px;
-  margin: 0;
+  margin: 5px 0;
   text-align: left;
   position: relative;
 }

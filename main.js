@@ -2,6 +2,8 @@ const addForm = document.querySelector('#add_name_form');
 const addNameBox = document.querySelector('#add_name_box');
 const dropDownMenu = document.querySelector('#number_per_team');
 const namelist = [];
+const generateButton = document.querySelector('#generateButton')
+
 
 console.log(addForm.new_input)
 
@@ -30,6 +32,28 @@ console.log(addForm.new_input)
    dropDownMenu.insertAdjacentHTML('beforeend', `<option value="${maxplayers}">${maxplayers}</option>`)
  }
 
+ function generateTeams() {
+   const a = [...namelist]
+  for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+  }
+
+  console.log(a)
+  console.log(namelist)
+  const teams = document.querySelector('#teams')
+
+  while (a.length != 0){
+    const newteam = document.createElement('ul')
+    newteam.className = 'namelist teamlist'
+    const players = a.splice(0, dropDownMenu.value)
+    players.map(player => {
+      newteam.insertAdjacentHTML('beforeend', `<li class="teamlistelement">${player}</li>`)
+    })
+    teams.appendChild(newteam)
+  }
+}
+
 
 console.log(addNameBox);
 console.log(namelist)
@@ -39,3 +63,5 @@ addForm.addEventListener('submit', (e) => {
   addNewName();
   calculateTeams();
 });
+
+generateButton.addEventListener('click', generateTeams);
