@@ -1,8 +1,8 @@
-const addForm = document.querySelector("#add_name_form");
-const addNameBox = document.querySelector("#add_name_box");
-const dropDownMenu = document.querySelector("#number_per_team");
+const addForm = document.getElementById("add_name_form");
+const addNameBox = document.getElementById("add_name_box");
+const dropDownMenu = document.getElementById("number_per_team");
 const namelist = [];
-const generateButton = document.querySelector("#generateButton");
+const generateButton = document.getElementById("generateButton");
 
 function addNewName() {
   const input = addForm.new_input;
@@ -13,12 +13,13 @@ function addNewName() {
   if (namelist.length === 0) {
     const newNameList = document.createElement("ul");
     newNameList.className = "namelist";
-    newNameList.setAttribute("id", "initialnamelist");
+    newNameList.setAttribute("id", "namelist");
     addNameBox.appendChild(newNameList);
   }
   namelist.push(name);
-  const namelistelement = document.querySelector("#initialnamelist");
-  namelistelement.insertAdjacentHTML("beforeend", `<li>${name}</li>`);
+  const namelistelement = document.createElement("li");
+  namelistelement.textContent = name;
+  document.getElementById("namelist").appendChild(namelistelement);
   input.value = "";
 }
 
@@ -41,14 +42,17 @@ function generateTeams() {
   }
 
   const teams = document.querySelector("#teams");
-  teams.innerHTML = "";
+  teams.textContent = "";
 
   while (a.length != 0) {
     const newteam = document.createElement("ul");
     newteam.className = "namelist teamlist";
     const players = a.splice(0, dropDownMenu.value);
     players.map((player) => {
-      newteam.insertAdjacentHTML("beforeend", `<li class="teamlistelement">${player}</li>`);
+      const teamlistelement = document.createElement("li");
+      teamlistelement.classList.add("teamlistelement");
+      teamlistelement.textContent = player;
+      newteam.appendChild(teamlistelement);
     });
     teams.appendChild(newteam);
   }
