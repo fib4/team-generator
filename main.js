@@ -28,7 +28,7 @@ function calculateTeams() {
   if (maxplayers <= 1 || dropDownMenu.children.length === maxplayers) {
     return;
   }
-  document.getElementById("number_per_team").removeAttribute('disabled');
+  document.getElementById("number_per_team").removeAttribute("disabled");
   dropDownMenu.insertAdjacentHTML("beforeend", `<option value="${maxplayers}">${maxplayers}</option>`);
 }
 
@@ -51,7 +51,7 @@ function generateTeams() {
     newteam.className = "namelist teamlist";
     let players;
     if (a.length % teamSize == 1 && a.length != 3) {
-      players = a.splice(0, teamSize+1);
+      players = a.splice(0, teamSize + 1);
     } else {
       players = a.splice(0, teamSize);
     }
@@ -71,8 +71,16 @@ addForm.addEventListener("submit", (e) => {
   calculateTeams();
 });
 
+dropDownMenu.addEventListener("mousedown", function (e) {
+  if (this.childElementCount < 3) {
+    e.preventDefault();
+    this.blur();
+    window.focus();
+  }
+});
+
 generateButton.addEventListener("click", generateTeams);
 
 window.onload = () => {
-  document.getElementById("number_per_team").setAttribute('disabled', true);
-}
+  document.getElementById("number_per_team").setAttribute("disabled", true);
+};
