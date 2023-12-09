@@ -46,8 +46,14 @@ function generateTeams() {
 
   while (a.length != 0) {
     const newteam = document.createElement("ul");
+    const teamSize = parseInt(dropDownMenu.value);
     newteam.className = "namelist teamlist";
-    const players = a.splice(0, dropDownMenu.value);
+    let players;
+    if (a.length % teamSize == 1) {
+      players = a.splice(0, teamSize+1);
+    } else {
+      players = a.splice(0, teamSize)
+    }
     players.map((player) => {
       const teamlistelement = document.createElement("li");
       teamlistelement.classList.add("teamlistelement");
