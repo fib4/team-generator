@@ -28,6 +28,7 @@ function calculateTeams() {
   if (maxplayers <= 1 || dropDownMenu.children.length === maxplayers) {
     return;
   }
+  document.getElementById("number_per_team").removeAttribute('disabled');
   dropDownMenu.insertAdjacentHTML("beforeend", `<option value="${maxplayers}">${maxplayers}</option>`);
 }
 
@@ -41,7 +42,7 @@ function generateTeams() {
     [a[i], a[j]] = [a[j], a[i]];
   }
 
-  const teams = document.querySelector("#teams");
+  const teams = document.getElementById("teams");
   teams.textContent = "";
 
   while (a.length != 0) {
@@ -49,10 +50,10 @@ function generateTeams() {
     const teamSize = parseInt(dropDownMenu.value);
     newteam.className = "namelist teamlist";
     let players;
-    if (a.length % teamSize == 1) {
+    if (a.length % teamSize == 1 && a.length != 3) {
       players = a.splice(0, teamSize+1);
     } else {
-      players = a.splice(0, teamSize)
+      players = a.splice(0, teamSize);
     }
     players.map((player) => {
       const teamlistelement = document.createElement("li");
@@ -71,3 +72,7 @@ addForm.addEventListener("submit", (e) => {
 });
 
 generateButton.addEventListener("click", generateTeams);
+
+window.onload = () => {
+  document.getElementById("number_per_team").setAttribute('disabled', true);
+}
