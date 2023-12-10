@@ -29,6 +29,7 @@ function calculateTeams() {
     return;
   }
   dropDownMenu.removeAttribute("disabled");
+  generateButton.removeAttribute("disabled");
   dropDownMenu.insertAdjacentHTML("beforeend", `<option value="${maxplayers}" selected>${maxplayers}</option>`);
 }
 
@@ -82,5 +83,6 @@ dropDownMenu.addEventListener("mousedown", function (e) {
 generateButton.addEventListener("click", generateTeams);
 
 window.onload = () => {
-  document.getElementById("number_per_team").setAttribute("disabled", true);
+  dropDownMenu.setAttribute("disabled", true);
+  generateButton.setAttribute("disabled", true);
 };
