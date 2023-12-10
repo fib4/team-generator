@@ -52,7 +52,7 @@ function generateTeams() {
     newteam.className = "namelist teamlist";
     let players;
     if (a.length % teamSize == 1 && a.length != 3) {
-      players = a.splice(0, teamSize + 1);
+      players = a.splice(0, teamSize+1);
     } else {
       players = a.splice(0, teamSize);
     }
@@ -70,14 +70,6 @@ addForm.addEventListener("submit", (e) => {
   e.preventDefault();
   addNewName();
   calculateTeams();
-});
-
-dropDownMenu.addEventListener("mousedown", function (e) {
-  if (this.childElementCount < 2) {
-    e.preventDefault();
-    this.blur();
-    window.focus();
-  }
 });
 
 generateButton.addEventListener("click", generateTeams);
