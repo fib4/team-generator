@@ -25,11 +25,11 @@ function addNewName() {
 
 function calculateTeams() {
   const maxplayers = Math.ceil(namelist.length / 2);
-  if (maxplayers <= 1 || dropDownMenu.children.length === maxplayers) {
+  if (maxplayers < 2 || dropDownMenu.children.length === maxplayers - 1) {
     return;
   }
-  document.getElementById("number_per_team").removeAttribute("disabled");
-  dropDownMenu.insertAdjacentHTML("beforeend", `<option value="${maxplayers}">${maxplayers}</option>`);
+  dropDownMenu.removeAttribute("disabled");
+  dropDownMenu.insertAdjacentHTML("beforeend", `<option value="${maxplayers}" selected>${maxplayers}</option>`);
 }
 
 function generateTeams() {
@@ -72,7 +72,7 @@ addForm.addEventListener("submit", (e) => {
 });
 
 dropDownMenu.addEventListener("mousedown", function (e) {
-  if (this.childElementCount < 3) {
+  if (this.childElementCount < 2) {
     e.preventDefault();
     this.blur();
     window.focus();
